@@ -1,0 +1,18 @@
+%h1
+  Registry of Rubyists
+
+.rubyists
+  = @foo
+
+%form{method: 'post', action: '/'}
+  .rubyist_name
+    %label{for: 'rubyist_name'}
+      Name
+    %input#rubyist_name{type: 'text', name: 'rubyist_name'}
+
+  .rubyist_address
+    %label{for: 'rubyist_address'}
+      Address
+    %input#rubyist_address{type: 'text', name: 'rubyist_address'}
+
+  %input#create_rubyist_submit{type: 'submit'}

@@ -1,6 +1,6 @@
 require_relative 'contract_interface'
 
-class RubyistContract < ContractInterface
+class RubyistContractInterface < ContractInterface
   def initialize(*args)
     @contract_name = 'Rubyist'
     @address = ENV['RUBYIST_CONTRACT_ADDRESS']
@@ -8,10 +8,12 @@ class RubyistContract < ContractInterface
   end
 
   def self.create(name, address)
-    new(name, address).contract.transact.create(*args)
+    inst = new
+    inst.set_gas_limit('create', name, address)
+    inst.signed_contract.transact.create(name, address)
   end
 
-  def self.get(name)
-    new(name).contract.call.get(*args)
+  def self.get(address)
+    new.contract.call.get(address)
   end
 end

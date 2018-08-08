@@ -1,10 +1,9 @@
 %h1
   Registry of Rubyists
 
-.rubyists
-  = @foo
-
-%form{method: 'post', action: '/'}
+%h3
+  Create Rubyist
+%form#create_rubyist{method: 'post', action: '/'}
   .rubyist_name
     %label{for: 'rubyist_name'}
       Name
@@ -16,3 +15,20 @@
     %input#rubyist_address{type: 'text', name: 'rubyist_address'}
 
   %input#create_rubyist_submit{type: 'submit'}
+
+%h3
+  Find Rubyist
+%form#find_rubyist{method: 'get', action: '/find'}
+  .address
+    %label{for: 'address'}
+      Address
+    %input#address{type: 'text', name: 'address'}
+
+  %input#find_rubyist_submit{type: 'submit'}
+
+.found_rubyists
+  - if name
+    %p
+      = "Name: #{name}"
+    %p
+      = "Address: #{address}"

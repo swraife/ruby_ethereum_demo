@@ -1,3 +1,5 @@
+require_relative 'app/rubyist_contract_interface'
+
 class MySinatraApp < Sinatra::Base
   set :haml, :format => :html5
 
@@ -6,11 +8,18 @@ class MySinatraApp < Sinatra::Base
   end
 
   get '/' do
-    @foo = ENV['ETH_DEFAULT_ACCOUNT']
-    haml :index
+    haml :index, locals: {name: nil, address: nil}
   end
 
   post '/' do
-    haml :index
+    RubyistContractInterface.create(params[:rubyist_name],
+                                    params[:rubyist_address])
+    name = RubyistContractInterface.get(params[:rubyist_address])
+    redirect to("/find?address=#{params[:rubyist_address]}")
+  end
+
+  get '/find' do
+    name = RubyistContractInterface.get(params[:address])
+    haml :index, locals: {name: name, address: params[:address]}
   end
 end

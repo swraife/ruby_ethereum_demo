@@ -7,3 +7,4 @@ gem 'dotenv'
 
 gem 'ethereum.rb'
 gem 'eth'
+gem 'byebug'

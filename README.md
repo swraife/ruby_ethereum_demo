@@ -40,7 +40,7 @@ Ethereum Network: There is the main ethereum network ('homestead') which is for 
 Account: A sequence of 20 bytes calculated from the public key. Looks like: 0x09438E46Ea66647EA65E4b104C125c82076FDcE5
 
 
-Wallet: A tool for managing and providing access to your ethereum accounts. There are hardware and software options. A wallet a has one seed phrase (12 words) for many accountsI use [Metamask](https://metamask.io/)
+Wallet: A tool for managing and providing access to your ethereum accounts. There are hardware and software options. A wallet a has one seed phrase (12 words) for many accounts. I use [Metamask](https://metamask.io/)
 
 
 Gas Limit: The maximum quantity of gas you are willing to pay for a transaction. Think: How many gallons? . Note: This is in part to prevent huge, or neverending transactions. E.g. when gas runs out, the transaction aborts. Unused gas is returned to you (mostly). The amount of gas a transaction takes is based on the computational complexity of that transaction.
